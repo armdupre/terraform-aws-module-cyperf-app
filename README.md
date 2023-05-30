@@ -1,1 +1,1 @@
-# terraform-aws-module-cyperf-app
+# module-cyperf-app/aws
