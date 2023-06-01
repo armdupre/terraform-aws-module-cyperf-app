@@ -2,6 +2,9 @@ locals {
 	AmiName = var.AmiName
 	AmiOwner = var.AmiOwner
 	Eth0Name = "${local.Preamble}-eth0-${local.Region}"
+	IamInstanceProfileName = "${local.Preamble}-iam-instance-profile-${local.Region}"
+	IamPolicyName = "${local.Preamble}-iam-policy-${local.Region}"
+	IamRoleName = "${local.Preamble}-iam-role-${local.Region}"
 	InterfaceSourceDestCheck = false
 	InstanceDisableApiTermination = false
 	InstanceEbsDeleteOnTermination = true
@@ -11,7 +14,7 @@ locals {
 	InstanceMonitoring = false
 	InstanceName = "${local.Preamble}-${local.Region}"
 	InstanceType = var.InstanceType
-	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.InstanceId}-${local.Tag}-${local.Version}"
+	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.InstanceId}-${local.Version}"
 	PublicSecurityGroupId = var.PublicSecurityGroupId
 	PublicSubnetId = var.PublicSubnetId
 	Region = data.aws_region.current.name
@@ -21,7 +24,6 @@ locals {
 	UserLoginTag = var.UserLoginTag
 	UserProjectTag = var.UserProjectTag
 	Version = var.Version
-	uuid = substr(uuid(), 1, 6)
 }
 
 locals {
