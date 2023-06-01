@@ -6,9 +6,9 @@ resource "aws_instance" "Instance" {
 	monitoring = local.InstanceMonitoring
 	iam_instance_profile = aws_iam_instance_profile.IamInstanceProfile.id
 	tags = {
-		Name = "${local.UserLoginTag}_${local.ProjectTag}_${local.InstanceId}_${local.Tag}_${local.Version}_${local.RegionTag}"
+		Name = local.InstanceName
 		Owner = local.UserEmailTag
-		Project = local.ProjectTag
+		Project = local.UserProjectTag
 	}
 	user_data = local.init_cli
 	network_interface {
@@ -26,16 +26,16 @@ resource "aws_instance" "Instance" {
 }
 
 resource "aws_network_interface" "Eth0" {
-	description = "${local.UserLoginTag}_${local.ProjectTag}_${local.Tag}_${local.InstanceId}_${local.Version}_ETH0_${local.RegionTag}"
+	description = local.Eth0Name
 	source_dest_check = local.InterfaceSourceDestCheck
 	subnet_id = local.PublicSubnetId
 	security_groups = [
 		local.PublicSecurityGroupId
 	]
 	tags = {
-		Name = "${local.UserLoginTag}_${local.ProjectTag}_${local.Tag}_${local.InstanceId}_${local.Version}_ETH0_${local.RegionTag}"
+		Name = local.Eth0Name
 		Owner = local.UserEmailTag
-		Project = local.ProjectTag
+		Project = local.UserProjectTag
 	}
 }
 

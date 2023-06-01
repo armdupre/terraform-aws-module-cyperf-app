@@ -1,6 +1,7 @@
 locals {
 	AmiName = var.AmiName
 	AmiOwner = var.AmiOwner
+	Eth0Name = "${local.Preamble}-eth0-${local.Region}"
 	InterfaceSourceDestCheck = false
 	InstanceDisableApiTermination = false
 	InstanceEbsDeleteOnTermination = true
@@ -8,17 +9,18 @@ locals {
 	InstanceId = var.InstanceId
 	InstanceInstanceInitiatedShutdownBehavior = "stop"
 	InstanceMonitoring = false
+	InstanceName = "${local.Preamble}-${local.Region}"
 	InstanceType = var.InstanceType
-	ProjectTag = var.ProjectTag
+	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.InstanceId}-${local.Tag}-${local.Version}"
 	PublicSecurityGroupId = var.PublicSecurityGroupId
 	PublicSubnetId = var.PublicSubnetId
 	Region = data.aws_region.current.name
-	RegionTag = upper(replace(local.Region, "-", "_"))
-	SleepDelay = "8m"
-	Tag = "CYPERF"
+	SleepDelay = var.SleepDelay
+	Tag = var.Tag
 	UserEmailTag = var.UserEmailTag
 	UserLoginTag = var.UserLoginTag
-	Version = "2.1"
+	UserProjectTag = var.UserProjectTag
+	Version = var.Version
 	uuid = substr(uuid(), 1, 6)
 }
 
