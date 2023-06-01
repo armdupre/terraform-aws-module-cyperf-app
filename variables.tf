@@ -10,8 +10,19 @@ variable "AmiOwner" {
 	type = string
 }
 
+variable "Eth0SecurityGroupId" {
+	description = "Id of the security group associated with first network interface"
+	type = string
+}
+
+variable "Eth0SubnetId" {
+	description = "Id of the subnet associated with the first network interface"
+	type = string
+}
+
 variable "InstanceId" {
 	default = "app"
+	description = "Id of the instance of this module that ensures uniqueness"
 	type = string
 }
 
@@ -25,21 +36,14 @@ variable "InstanceType" {
 	}
 }
 
-variable "PublicSecurityGroupId" {
-	type = string
-}
-
-variable "PublicSubnetId" {
-	type = string
-}
-
 variable "SleepDelay" {
 	default = "7m"
+	description = "Time duration to delay to allow application to perform internal initialization required before use"
 	type = string
 }
 
 variable "Tag" {
-	default = "example"
+	default = "cyperf"
 	description = "App ID tag of application using the deployment"
 	type = string
 }
@@ -72,5 +76,6 @@ variable "UserProjectTag" {
 
 variable "Version" {
 	default = "2-1"
+	description "Versioning of the application using the deployment
 	type = string
 }

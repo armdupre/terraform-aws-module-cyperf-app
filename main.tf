@@ -28,9 +28,9 @@ resource "aws_instance" "Instance" {
 resource "aws_network_interface" "Eth0" {
 	description = local.Eth0Name
 	source_dest_check = local.InterfaceSourceDestCheck
-	subnet_id = local.PublicSubnetId
+	subnet_id = local.Eth0SubnetId
 	security_groups = [
-		local.PublicSecurityGroupId
+		local.Eth0SecurityGroupId
 	]
 	tags = {
 		Name = local.Eth0Name

@@ -2,6 +2,8 @@ locals {
 	AmiName = var.AmiName
 	AmiOwner = var.AmiOwner
 	Eth0Name = "${local.Preamble}-eth0-${local.Region}"
+	Eth0SecurityGroupId = var.Eth0SecurityGroupId
+	Eth0SubnetId = var.Eth0SubnetId
 	IamInstanceProfileName = "${local.Preamble}-iam-instance-profile-${local.Region}"
 	IamPolicyName = "${local.Preamble}-iam-policy-${local.Region}"
 	IamRoleName = "${local.Preamble}-iam-role-${local.Region}"
@@ -15,8 +17,6 @@ locals {
 	InstanceName = "${local.Preamble}-${local.Region}"
 	InstanceType = var.InstanceType
 	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.InstanceId}-${local.Version}"
-	PublicSecurityGroupId = var.PublicSecurityGroupId
-	PublicSubnetId = var.PublicSubnetId
 	Region = data.aws_region.current.name
 	SleepDelay = var.SleepDelay
 	Tag = var.Tag
