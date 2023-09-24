@@ -94,3 +94,11 @@ variable "Version" {
 	description = "Versioning of the application using the deployment"
 	type = string
 }
+
+variable "init_cli" {
+	default = <<-EOF
+#!/bin/bash -xe
+snap list amazon-ssm-agent
+    EOF
+	type = string
+}
