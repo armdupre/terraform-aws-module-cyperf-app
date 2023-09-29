@@ -1,5 +1,5 @@
 variable "AmiName" {
-	default = "cyperf-mdw-1-0-11322-releasecyperf25-92384358-5015-4a4b-aed2-8113e28d871a"
+	default = "cyperf-mdw-1-0-10121-releasecyperf21-92384358-5015-4a4b-aed2-8113e28d871a"
 	description = "AMI name used for deploying instances"
 	type = string
 }
