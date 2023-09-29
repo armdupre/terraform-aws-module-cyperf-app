@@ -10,6 +10,12 @@ variable "AmiOwner" {
 	type = string
 }
 
+variable "Eth0EnableElasticIp" {
+	default = true
+	description = "Indicates whether or not to create and attach an elastic ip to first network interface"
+	type = bool
+}
+
 variable "Eth0SecurityGroupId" {
 	description = "Id of the security group associated with first network interface"
 	type = string
