@@ -8,11 +8,10 @@ output "Ami" {
 }
 
 output "Eth0ElasticIp" {
-	count = local.Eth0EnableElasticIp == true ? 1 : 0
 	description = "Elastic Ip resource associated with the first network interface."
 	value = {
-		"public_dns" : "https://${aws_eip.Eth0ElasticIp[0].public_dns}"
-		"public_ip" : aws_eip.Eth0ElasticIp[0].public_ip
+		"public_dns" : format("%s/%s", "https://", aws_eip.Eth0ElasticIp[*].public_dns)
+		"public_ip" : aws_eip.Eth0ElasticIp[*].public_ip
 	}
 }
 
