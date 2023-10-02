@@ -32,6 +32,12 @@ variable "InstanceId" {
 	type = string
 }
 
+variable "InstanceName" {
+	default = null
+	description = "Custom instance name used to override the default automatically generated name"
+	type = string
+}
+
 variable "InstanceType" {
 	default = "c5.2xlarge"
 	description = "Instance type of VM"
