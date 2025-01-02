@@ -1,5 +1,5 @@
 variable "AmiName" {
-	default = "cyperf-mdw-1-0-13841-releasecyperf50-92384358-5015-4a4b-aed2-8113e28d871a"
+	default = "cyperf-mdw-1-0-14216-releasecyperf60-92384358-5015-4a4b-aed2-8113e28d871a"
 	description = "AMI name used for deploying instances"
 	type = string
 }
@@ -102,7 +102,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "5-0"
+	default = "6-0"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
